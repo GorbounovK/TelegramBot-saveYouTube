@@ -11,14 +11,13 @@ import org.telegram.telegrambots.meta.generics.BotSession;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import lombok.extern.log4j.Log4j2;
-//import ua.org.gorbounov.telegrambots.SaveYouTube;
 
 @Log4j2
 @SpringBootApplication
 @EnableAutoConfiguration
 public class TelegramBotSaveYouTubeApplication {
-//	@Autowired
-//	SaveYouTube bot;
+	@Autowired
+	SaveYouTube bot;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(TelegramBotSaveYouTubeApplication.class, args);
@@ -27,7 +26,6 @@ public class TelegramBotSaveYouTubeApplication {
 	@Bean
 	public SaveYouTube MyBot() {
 		log.info("We've just greeted the user!");
-		SaveYouTube bot = new SaveYouTube("6071989796:AAH8-4QxbEvvNnU9gkXpFN9wZJ9T6uhRhLo");
 		try {
 			TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
 			BotSession bs = botsApi.registerBot(bot);
